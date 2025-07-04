@@ -1,66 +1,135 @@
-## Foundry
+# 🎰 Smart Contract Lottery – Built with Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This is a decentralized lottery system built using **Foundry**, a blazing fast and modular toolkit for Ethereum development.
 
-Foundry consists of:
+Participants can enter the lottery by sending ETH, and a random winner is selected using Chainlink VRF (Verifiable Random Function).
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## 🛠 Tech Stack
 
-https://book.getfoundry.sh/
+* [Foundry](https://book.getfoundry.sh/)
 
-## Usage
+  * **Forge** – Testing & scripting
+  * **Cast** – Contract interaction
+  * **Anvil** – Local Ethereum node
+* Solidity
+* Chainlink VRF
+* OpenZeppelin Contracts (optional)
 
-### Build
+---
 
-```shell
-$ forge build
+## 📂 Project Structure
+
+```
+/src         → Solidity smart contracts  
+/script      → Deployment & automation scripts  
+/test        → Unit tests using Forge  
+/lib         → External dependencies (e.g., Chainlink, Forge-std)  
 ```
 
-### Test
+---
 
-```shell
-$ forge test
+## 🚀 Quick Start
+
+### 1. Install Foundry
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 ```
 
-### Format
+### 2. Install Dependencies
 
-```shell
-$ forge fmt
+```bash
+make install
 ```
 
-### Gas Snapshots
+---
 
-```shell
-$ forge snapshot
+## 💻 Usage
+
+### 🧱 Build Contracts
+
+```bash
+forge build
 ```
 
-### Anvil
+### ✅ Run Tests
 
-```shell
-$ anvil
+```bash
+forge test
 ```
 
-### Deploy
+### 💅 Format Code
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```bash
+forge fmt
 ```
 
-### Cast
+### ⛽ Gas Snapshot
 
-```shell
-$ cast <subcommand>
+```bash
+forge snapshot
 ```
 
-### Help
+### 🪡 Run Local Blockchain
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```bash
+anvil
 ```
+
+### 🚀 Deploy Contract
+
+```bash
+make deploy
+```
+
+Ensure that your `.env` file is set with the following:
+
+```
+RPC_URL=<your_rpc_url>
+PRIVATE_KEY=<your_private_key>
+```
+
+---
+
+## 📃 Makefile
+
+```
+install:
+	forge install cyfrin/foundry-devops@0.2.2 --no-commit
+	forge install smartcontractkit/chainlink-brownie-contracts@1.1.1 --no-commit
+	forge install foundry-rs/forge-std@v1.8.2 --no-commit
+	forge install transmissions11/solmate@v6 --no-commit
+
+deploy:
+	forge script script/Lottery.s.sol:LotteryScript \
+		--rpc-url $${RPC_URL} \
+		--private-key $${PRIVATE_KEY} \
+		--broadcast \
+		--verify \
+		--etherscan-api-key $${ETHERSCAN_API_KEY}
+```
+
+---
+
+## 📚 Resources
+
+* [Foundry Book](https://book.getfoundry.sh/)
+* [Chainlink VRF Docs](https://docs.chain.link/vrf/v2/introduction)
+* [Solmate](https://github.com/transmissions11/solmate)
+* [Forge Std](https://github.com/foundry-rs/forge-std)
+
+---
+
+## 🧠 Author
+
+Built by [Ravi Shankar Kumar](https://github.com/RaviShanka5139)
+Connect on Twitter [@RaviShanka5139](https://twitter.com/RaviShanka5139)
+
+---
+
+## 📄 License
+
+MIT
