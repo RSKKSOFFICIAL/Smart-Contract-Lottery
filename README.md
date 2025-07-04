@@ -125,7 +125,7 @@ deploy:
 
 ## 🧠 Author
 
-* Built by [Ravi Shankar Kumar](https://github.com/RaviShanka5139)
+* Built by [Ravi Shankar Kumar](https://www.linkedin.com/in/ravi-shankar-kumar-659996250/)
 * Connect on Twitter [@RaviShanka5139](https://twitter.com/RaviShanka5139)
 
 ---
